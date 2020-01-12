@@ -4,6 +4,7 @@
 
 
 $connect_sql=select_all_post();
+$categories=select_all_category();
 
 
 ?>
@@ -22,7 +23,7 @@ $connect_sql=select_all_post();
 
                             <div class="blog">
                                 <div class="blog-img-container">
-                                     <a href="#">
+                                     <a href="<?php echo url_for("/post.php?post_id={$post['id']}");?>">
                                         <img src="images/<?php echo $post['post_image'];?>" alt="mose" class="blog-image img-fluid d-block bordered">
                                     </a>
                                 </div>
@@ -30,7 +31,7 @@ $connect_sql=select_all_post();
 
                                 <div class="blog-cat"><h6 class="blog-cat-text"><?php echo $post['post_category'];?></h6></div>
                                 <div class="blog-title">
-                                    <a href="#" class="blog-title-link">
+                                    <a href="<?php echo url_for("/post.php?post_id={$post['id']}");?>" class="blog-title-link">
                                         <h2 class="blog-title-text"><?php echo $post['post_title'];?></h2>
                                     </a>
                                 </div>
@@ -40,6 +41,7 @@ $connect_sql=select_all_post();
                             </div>
                         </div>
                         <?php }?>
+                        <?php mysqli_free_result($connect_sql);?>
                     </div>
                     <div class="load-more">
                         <a href="#" class="load-more-btn myBtn">load more post</a>
@@ -48,69 +50,36 @@ $connect_sql=select_all_post();
                 <div class="col-md-4">
                    <h2 class="section-heading text-uppercase">categories</h2>
                    <ul class="list-unstyled cat-list">
-                        <li class="cat-list-item"><a href="#" class="cat-list-link">technology</a><span class="cat-bage">45</span></li>
-                        <li class="cat-list-item"><a href="#" class="cat-list-link">review</a><span class="cat-bage">45</span></li>
-                        <li class="cat-list-item"><a href="#" class="cat-list-link">life style</a><span class="cat-bage">45</span></li>
-                        <li class="cat-list-item"><a href="#" class="cat-list-link">design</a><span class="cat-bage">45</span></li>
+                       <?php while($category=mysqli_fetch_assoc($categories)){?>
+                        <li class="cat-list-item"><a href="#" class="cat-list-link"><?php echo $category['cat_title'];?></a><span class="cat-bage"><?php echo $category['cat_post_count'];?></span></li>
+
+                       <?php }?>
                    </ul>
                    <h2 class="section-heading text-uppercase my-4">trending post</h2>
                    <div class="row trending-post">
+                       <?php
+                        $posts=select_all_post(["limit"=>4]);
+                        while($post=mysqli_fetch_assoc($posts)){
+                       ?>
                         <div class="col-12 mb-3">
                            <div class="row align-items-center">
                                 <div class="col-4 ">
                                         <div class="tending-img-container">
-                                            <img src="images/focus_th.jpg" alt="" class="tending-img img-fluid">
+                                            <img src="images/<?php echo $post['post_image'];?>" alt="" class="tending-img img-fluid">
                                         </div>
                                     </div>
                                     <div class="col-8">
-                                        <h6 class="blog-cat-text">Tecnology</h6>
-                                        <h2 class="blog-title-text">How mouse work on computer</h2>
-                                        <span class="blog-date">web 10 2019</span>
+                                        <h6 class="blog-cat-text"><?php echo $post['post_category'];?></h6>
+                                        <a href="<?php echo url_for("/post.php?post_id={$post['id']}");?>">
+                                            <h2 class="blog-title-text"><?php echo substr($post['post_title'],0,25)."...";?></h2>
+                                        </a>
+                                        <span class="blog-date"><?php echo $post['post_date'];?></span>
                                     </div>
                            </div>
                         </div>
-                        <div class="col-12 mb-3">
-                            <div class="row">
-                                    <div class="col-4">
-                                           <div class="tending-img-container">
-                                                <img src="images/camera_th.jpg" class="tending-img img-fluid ">
-                                           </div>
-                                        </div>
-                                        <div class="col-8">
-                                            <h6 class="blog-cat-text">Tecnology</h6>
-                                            <h2 class="blog-title-text">How mouse work on computer</h2>
-                                            <span class="blog-date">web 10 2019</span>
-                                        </div>
-                            </div>
-                        </div>
-                        <div class="col-12 mb-3">
-                            <div class="row">
-                                    <div class="col-4">
-                                          <div class="tending-img-container">
-                                                <img src="images/light_th.jpg" alt="" class="tending-img img-fluid ">
-                                          </div>
-                                        </div>
-                                        <div class="col-8">
-                                            <h6 class="blog-cat-text">Tecnology</h6>
-                                            <h2 class="blog-title-text">How mouse work on computer</h2>
-                                            <span class="blog-date">web 10 2019</span>
-                                        </div>
-                            </div>
-                        </div>
-                        <div class="col-12 mb-3">
-                            <div class="row">
-                                    <div class="col-4">
-                                            <div class="tending-img-container">
-                                                <img src="images/phone_th.jpg" alt="" class="tending-img img-fluid ">
-                                            </div>
-                                    </div>
-                                    <div class="col-8">
-                                        <h6 class="blog-cat-text">Tecnology</h6>
-                                        <h2 class="blog-title-text">How mouse work on computer</h2>
-                                        <span class="blog-date">web 10 2019</span>
-                                    </div>
-                            </div>
-                        </div>
+                       <?php }?>
+                       <?php mysqli_free_result($posts);?>
+
                    </div>
                    <div class="subscription mt-4">
                        <h2 class="sub-heading">

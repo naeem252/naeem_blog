@@ -80,7 +80,7 @@ body{
 
 .blog-img-container{
     overflow: hidden;
-        border-radius: 5px;
+    border-radius: 5px;
 }
 .blog:hover .blog-image{
     transform: scale(1.2);
@@ -299,7 +299,7 @@ body{
 .recent-post-title{
     transition: 0.4s ease-out;
     font-weight: 300;
-    transform: translateY(62px);
+    transform: translateY(100px);
 }
 .recent-post-img:hover ~ .recent-post-text .recent-post-icon{
     transform: translateY(5px);
@@ -440,14 +440,14 @@ body{
     cursor: pointer;
 }
 .search-btn{
-    
-display: block;
-    
-width: 94%;
-    
-margin-top: 1rem;
-    
-margin-bottom: 1rem;
+
+    display: block;
+
+    width: 94%;
+
+    margin-top: 1rem;
+
+    margin-bottom: 1rem;
 }
 .modal-form.form-animate{
     animation: modal 0.5s forwards;
@@ -459,10 +459,10 @@ margin-bottom: 1rem;
     50%{
         transform: translate(-11rem,-5rem) scale(1.3);
     }75%{
-        transform: translate(-11rem,-5rem) scale(.8);
-    }100%{
-        transform: translate(-11rem,-5rem) scale(1);
-    }
+         transform: translate(-11rem,-5rem) scale(.8);
+     }100%{
+          transform: translate(-11rem,-5rem) scale(1);
+      }
 }
 
 .modal-form.form-animate-close{
@@ -475,7 +475,7 @@ margin-bottom: 1rem;
     100%{
         transform: translate(-11rem,-5rem) scale(0);
     }
-    
+
 }
 
 
@@ -720,9 +720,9 @@ SET DEFAULT
 ================*/
 
 .ui-state-default,
- .ui-widget-content .ui-state-default,
-  .ui-widget-header .ui-state-default,
-   .ui-button, 
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default,
+.ui-button,
 html .ui-button.ui-state-disabled:hover,
 html .ui-button.ui-state-disabled:active{
     background: none;
@@ -743,8 +743,8 @@ Slick options
 ==================*/
 .slick-prev:before{
     font-family: "Font Awesome 5 Free";
-     vertical-align: middle;
-   font-weight: 900;
+    vertical-align: middle;
+    font-weight: 900;
     content: "\f137";
 }
 .slick-next{
@@ -752,8 +752,8 @@ Slick options
 }
 .slick-next:before{
     font-family: "Font Awesome 5 Free";
-     vertical-align: middle;
-   font-weight: 900;
+    vertical-align: middle;
+    font-weight: 900;
     content: "\f138";
 }
 .slick-prev:before, .slick-next:before{
@@ -819,7 +819,7 @@ About page design
     background: #ddd;
     position: relative;
     transition: 0.4s ease-out;
-        text-decoration: none;
+    text-decoration: none;
 
 }
 .about-social-link i{
@@ -834,7 +834,7 @@ About page design
     border: 1px solid #ddd;
     border-radius: 50%;
     padding: 4px;
-    
+
     transition: 0.4s ease-out;
 }
 .about-social-link:hover{
@@ -850,8 +850,8 @@ About page design
 
 }
 .facebook i{
-    
-color: blue;
+
+    color: blue;
 }
 .youtube i{
     color: red;
@@ -917,37 +917,37 @@ FIXED SOCIAL ICON STYLE
     padding: 0;
 }
 .fixSocialItem{
-    
+
 }
 .fixSocialItem:hover{
-   
+
 }
 
 .fixSocialLink{
-    
-color: #444;
-    
-font-size: 1.5rem;
-    
-display: flex;
-    
-position: relative;
-    
-/* justify-content: center; */
-    
-align-items: center;
-    
-border: 1px solid #ddd;
-    
-border-radius: 4px;
-    
-/* margin-bottom: 1rem; */
-    
-padding: .3rem 1rem;
-    
-transition: 0.4s ease-out;
-    
-left: -127px;
+
+    color: #444;
+
+    font-size: 1.5rem;
+
+    display: flex;
+
+    position: relative;
+
+    /* justify-content: center; */
+
+    align-items: center;
+
+    border: 1px solid #ddd;
+
+    border-radius: 4px;
+
+    /* margin-bottom: 1rem; */
+
+    padding: .3rem 1rem;
+
+    transition: 0.4s ease-out;
+
+    left: -127px;
 }
 .fixSocialLink:hover{
     text-decoration: none;
@@ -956,7 +956,7 @@ left: -127px;
 
 }
 .fixSocialLink i{
-    
+
 }
 .fixSocialLink.facebook{
     background: blue;

@@ -19,3 +19,16 @@
     <title>Naee || Blog</title>
 </head>
 <body>
+
+
+<?php
+
+if(isset($_POST['submit_search'])){
+    $search_q=$_POST['search'];
+//    $sql="SELECT * FROM posts ";
+//    $sql.="WHERE post_tags LIKE '%{$search_q}%'";
+    header("location:post.php?post_t={$search_q}");
+}
+
+
+?>

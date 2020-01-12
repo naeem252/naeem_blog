@@ -304,3 +304,6 @@ $single_post=mysqli_fetch_assoc($sql_connect);
         </form>
     </div>
 </section>
+
+
+<?php include INCLUDES."/page_bottom.php";?>

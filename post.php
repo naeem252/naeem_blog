@@ -2,6 +2,7 @@
 <?php
 
 $post_id=$_GET['post_id'] ?? 1;
+$post_t=$_GET['post_t'] ?? "";
 
 
 
@@ -20,4 +21,3 @@ if(isset($_GET['post_id'])){
 
 ?>
 
-<?php include INCLUDES."/page_bottom.php";?>

@@ -1,7 +1,7 @@
 
 <?php
 
-$connect_sql=select_all_post();
+$connect_sql=select_all_post(["post_t"=>$post_t]);
 
 
 ?>
