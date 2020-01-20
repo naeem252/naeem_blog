@@ -91,7 +91,7 @@
 
                     foreach ($tags as $tag){
                     ?>
-                    <a href="#" class="tag"><?php echo $tag;?></a>
+                    <a href="<?php echo url_for("/post.php?post_t={$tag}");?>" class="tag"><?php echo $tag;?></a>
 
                     <?php }?>
                     <?php mysqli_free_result($posts);?>

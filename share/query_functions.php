@@ -8,10 +8,10 @@
 function select_all_post($options=[]){
     global $database;
     $limit=$options['limit'] ?? false;
-    $post_t=$options['post_t']!=="" ? $options['post_t'] : false;
+    $post_t= $options['post_t'] ?? false;
     $sql="SELECT * FROM posts ";
     if($post_t){
-        $sql.="WHERE post_tags LIKE '%technology%' ";
+        $sql.="WHERE post_tags LIKE '%{$post_t}%' ";
     }
     if($limit){
         $sql.="LIMIT {$limit}";

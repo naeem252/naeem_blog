@@ -2,7 +2,7 @@
 <?php
 
 $post_id=$_GET['post_id'] ?? 1;
-$post_t=$_GET['post_t'] ?? "";
+$post_t=$_GET['post_t'] ?? null;
 
 
 

@@ -3,9 +3,9 @@
 <?php
 
 
-$connect_sql=select_all_post();
+$connect_sql=select_all_post(["limit"=>8]);
 $categories=select_all_category();
-
+unset($_SESSION['load_off']);
 
 ?>
 <?php include INCLUDES."/header.php";?>
@@ -17,7 +17,7 @@ $categories=select_all_category();
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <div class="row">
+                    <div class="row" id="main_post_div">
                         <?php while($post=mysqli_fetch_assoc($connect_sql)){?>
                         <div class="col-md-6 mb-5">
 
@@ -43,9 +43,13 @@ $categories=select_all_category();
                         <?php }?>
                         <?php mysqli_free_result($connect_sql);?>
                     </div>
-                    <div class="load-more">
-                        <a href="#" class="load-more-btn myBtn">load more post</a>
-                    </div>
+                    <?php if(!isset($post_t)){?>
+                       <?php if(!isset($_SESSION['load_off'])){?>
+                            <div class="load-more">
+                                <a href="#" id="load_more_btn" class="load-more-btn myBtn">load more post</a>
+                                <img id="load_gif" style="display: none;" src='images/loader.gif' width='150' height='150'>
+                            </div>
+                    <?php }}?>
                 </div>
                 <div class="col-md-4">
                    <h2 class="section-heading text-uppercase">categories</h2>
