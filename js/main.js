@@ -48,10 +48,19 @@ $(document).ready(function(){
         $(this).css("display","none");
         $("#load_gif").css("display","block");
        $.get("ajax.php?load_more="+offset,function(data){
-           console.log(data);
-           $("#main_post_div").append(data);
-           $("#load_gif").css("display","none");
-           $("#load_more_btn").css("display","block");
+
+
+               if(data.length<=6){
+                   console.log(data.length);
+                   $("#load_gif").css("display","none");
+                   $("#load_more_btn").css("display","none");
+               }else{
+                   $("#main_post_div").append(data);
+                   $("#load_gif").css("display","none");
+                   $("#load_more_btn").css("display","block");
+               }
+
+
 
        });
        offset+=2;
@@ -63,7 +72,8 @@ $(document).ready(function(){
         $(this).css("display","none");
         $("#load_gif").css("display","block");
         $.get("ajax.php?load_more="+offset_post,function(data){
-            console.log(data);
+
+
             $("#main_post_div").append(data);
             $("#load_gif").css("display","none");
             $("#load_more_btn").css("display","block");

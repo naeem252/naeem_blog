@@ -19,6 +19,7 @@ require_once "db_credentials.php";
 require_once "db_functions.php";
 require_once "functions.php";
 require_once "query_functions.php";
+require_once "auth_function.php";
 
 
 
