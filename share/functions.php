@@ -12,3 +12,14 @@ function url_for($path){
     }
     return WWW_ROOT.$path;
 }
+
+function u($string){
+    return urlencode($string);
+}
+function h($string){
+    return htmlspecialchars($string);
+}
+function e($string){
+    global $database;
+    return mysqli_real_escape_string($database,$string);
+}

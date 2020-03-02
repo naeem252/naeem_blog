@@ -162,7 +162,8 @@
 </div>
 
 <footer id="footer-section" class="text-center">
-    <p class="f-content">&copy; 2019 all right reserve by naeem hasan</p>
+    <p class="f-content">&copy; <?php echo date("Y");?> all right reserve by naeem hasan</p>
 </footer>
 </body>
 </html>
+<?php db_disconnect($database);?>

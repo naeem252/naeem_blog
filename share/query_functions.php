@@ -7,6 +7,7 @@
  */
 function select_all_post($options=[]){
     global $database;
+    $offset=$options['offset'] ?? false;
     $limit=$options['limit'] ?? false;
     $post_t= $options['post_t'] ?? false;
     $sql="SELECT * FROM posts ";
@@ -14,7 +15,10 @@ function select_all_post($options=[]){
         $sql.="WHERE post_tags LIKE '%{$post_t}%' ";
     }
     if($limit){
-        $sql.="LIMIT {$limit}";
+        $sql.="LIMIT {$limit} ";
+    }
+    if($offset){
+        $sql.="OFFSET {$offset}";
     }
     $connect_sql=mysqli_query($database,$sql);
 

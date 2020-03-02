@@ -12,9 +12,11 @@ if(!is_logedin()){
 
 
 <?php
-if(isset($_GET['post']) && $_GET['post']=="all"){
-    include "includes/all_posts.php";
-}elseif(isset($_GET['post']) && $_GET['post']=="add"){
+
+
+if(isset($_GET['post']) && $_GET['post']=="add"){
     include "includes/add_post.php";
+}else{
+    include "includes/all_posts.php";
 }
 ?>

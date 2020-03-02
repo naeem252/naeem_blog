@@ -23,7 +23,7 @@ unset($_SESSION['load_off']);
 
                             <div class="blog">
                                 <div class="blog-img-container">
-                                     <a href="<?php echo url_for("/post.php?post_id={$post['id']}");?>">
+                                     <a href="<?php echo url_for("/post.php?post_id=".$post['id']); ?>">
                                         <img src="images/<?php echo $post['post_image'];?>" alt="mose" class="blog-image img-fluid d-block bordered">
                                     </a>
                                 </div>
